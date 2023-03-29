@@ -10,10 +10,11 @@ window.addEventListener("load", function() {
 
 document.querySelector("#play").addEventListener("click", function() {
 	console.log("Play Video");
-	// const video = document.getElementById("player1");
+	const video = document.getElementById("player1");
 	const volumeSpan = document.getElementById("volume");
+	console.log(video.volume * 100)
 	video.play();
-  	volumeSpan.textContent = video.volume.toFixed(1);
+  	volumeSpan.textContent = (video.volume * 100).toFixed(0) + "%";
 });
 
 document.querySelector("#pause").addEventListener("click", function() {
@@ -65,7 +66,7 @@ volumeSlider.addEventListener("input", function() {
   const videoPlayer = document.getElementById("player1");
   videoPlayer.volume = volumeSlider.value / 100;
 
-  volumeSpan.textContent = videoPlayer.volume.toFixed(1);
+  volumeSpan.textContent = videoPlayer.volume * 100  + "%";
 });
 
 document.querySelector("#vintage").addEventListener("click", function() {
